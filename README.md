@@ -1,1 +1,1 @@
-# IMBD-Movie-Reviews-Sentimental-Analysis-Classification-
+# IMBD Movie Reviews (Sentimental Analysis - Classification).
