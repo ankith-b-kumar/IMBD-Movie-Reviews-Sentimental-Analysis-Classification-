@@ -1,0 +1,7 @@
+beautifulsoup4
+contractions
+matplotlib
+nltk
+numpy
+pandas
+scikit-learn
