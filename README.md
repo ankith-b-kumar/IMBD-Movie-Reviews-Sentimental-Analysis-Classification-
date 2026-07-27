@@ -148,19 +148,19 @@ The Logistic Regression classifier achieved strong performance on the IMDb Movie
 ### Confusion Matrix
 
 <p align="center">
-<img src="images/confusion_matrix.png" width="500">
+<img src="images/Confusion_matrix.png" width="500">
 </p>
 
 ### Classification Report
 
 <p align="center">
-<img src="images/classification_report.png" width="600">
+<img src="images/Classification_report.png" width="600">
 </p>
 
 ### Performance Comparison
 
 <p align="center">
-<img src="images/performance_table.png" width="700">
+<img src="images/Performance_table.png" width="700">
 </p>
 
 ---
