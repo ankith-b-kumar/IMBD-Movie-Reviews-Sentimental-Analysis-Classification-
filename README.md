@@ -115,7 +115,7 @@ Model Evaluation
       │
       ▼
 Model Interpretation
-
+```
 ---
 
 # 🛠️ Technologies Used
