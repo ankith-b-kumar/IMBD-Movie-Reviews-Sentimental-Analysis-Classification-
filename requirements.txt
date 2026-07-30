@@ -1,7 +1,11 @@
 beautifulsoup4
 contractions
+datasets
+evaluate
 matplotlib
 nltk
 numpy
 pandas
 scikit-learn
+torch
+transformers

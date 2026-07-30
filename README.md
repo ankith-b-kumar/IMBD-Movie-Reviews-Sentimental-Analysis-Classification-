@@ -1,214 +1,56 @@
-# 🎬 IMDb Movie Review Sentiment Analysis using Classical NLP
+# 🚀 Movie Review Sentiment Analysis: From Classical NLP to BERT
 
 ![Python](https://img.shields.io/badge/Python-3.11-blue)
 ![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-ML-orange)
-![NLP](https://img.shields.io/badge/NLP-TF--IDF-green)
-![License](https://img.shields.io/badge/License-MIT-yellow)
+![PyTorch](https://img.shields.io/badge/PyTorch-Deep%20Learning-red)
+![Transformers](https://img.shields.io/badge/HuggingFace-Transformers-yellow)
+![License](https://img.shields.io/badge/License-MIT-lightgrey)
 
-An end-to-end Natural Language Processing (NLP) project that classifies IMDb movie reviews as **Positive** or **Negative** using **TF-IDF** feature extraction and **Logistic Regression**.
 
-Unlike many sentiment analysis projects that focus only on achieving high accuracy, this project emphasizes understanding the reasoning behind every preprocessing step, feature engineering decision, and model prediction. The classifier is designed to be both accurate and interpretable, making it suitable for learning classical NLP techniques and explaining model behavior during interviews.
 
----
+## 📖 Repository Overview
 
-## Table of Contents
+This repository documents my learning journey in **Natural Language Processing (NLP)** through two complete implementations of sentiment analysis on the IMDb Movie Reviews dataset.
 
-- Project Overview
-- Features
-- Dataset
-- Objectives
-- Workflow
-- Technologies Used
-- Results
-- Evaluation Beyond Accuracy
-- Model Interpretation
-- Key Learning Outcomes
-- Repository Structure
-- Installation
-- How to Run
-- Future Improvements
-- License
+Rather than focusing solely on achieving high accuracy, the repository demonstrates the evolution of NLP techniques—from traditional feature engineering using TF-IDF and Logistic Regression to modern transformer-based models using Google's BERT.
 
-## ✨ Features
+Each implementation is self-contained with detailed documentation, allowing readers to understand both the methodology and the practical trade-offs between classical machine learning and deep learning approaches.
 
-- End-to-end Classical NLP pipeline
-- HTML tag removal using BeautifulSoup
-- Lowercasing and text normalization
-- Contraction expansion
-- URL and punctuation removal
-- Lemmatization using NLTK
-- Negation-aware stopword removal
-- TF-IDF vectorization with unigrams and bigrams
-- Logistic Regression classifier
-- Comprehensive model evaluation
-- Interpretation of learned feature coefficients
-- Custom review prediction on unseen text
 
----
 
-# 📊 Dataset
+## 🎯 Why This Repository?
 
-The project uses the **IMDb Movie Reviews Dataset**, containing **50,000** labeled movie reviews equally divided into positive and negative sentiments.
+The goal of this project was not simply to classify movie reviews.
 
-| Attribute | Details |
-|-----------|---------|
-| Dataset | IMDb Movie Reviews |
-| Total Reviews | 50,000 |
-| Classes | Positive, Negative |
-| Class Distribution | Balanced (25,000 each) |
-| Task | Binary Text Classification |
+Instead, it was built to understand how modern NLP techniques solve real-world text classification problems and how the same approaches can be adapted to analyze customer opinions, product reviews, support tickets, survey responses, and other forms of unstructured business data.
 
-The balanced nature of the dataset makes it an excellent benchmark for evaluating traditional NLP techniques.
+The IMDb dataset serves as a benchmark that makes it easier to learn, compare, and validate different NLP methodologies before applying them to real-world business scenarios.
 
----
 
-# 🎯 Project Objectives
-
-The primary objectives of this project are:
-
-- Build a complete end-to-end sentiment analysis pipeline.
-- Understand the purpose of every preprocessing step.
-- Transform raw text into numerical representations using TF-IDF.
-- Train an interpretable machine learning classifier.
-- Evaluate the classifier using multiple performance metrics.
-- Analyze the learned feature importance instead of treating the model as a black box.
-
----
-
-# ⚙️ Project Workflow
+## 📈 Learning Journey
 
 ```text
-IMDb Reviews
-      │
-      ▼
-HTML Removal
-      │
-      ▼
-Lowercasing
-      │
-      ▼
-Contraction Expansion
-      │
-      ▼
-URL Removal
-      │
-      ▼
-Punctuation Removal
-      │
-      ▼
-Lemmatization
-      │
-      ▼
-Negation-aware Stopword Removal
-      │
-      ▼
-TF-IDF Vectorization
-      │
-      ▼
-Train-Test Split
-      │
-      ▼
-Logistic Regression
-      │
-      ▼
-Model Evaluation
-      │
-      ▼
-Model Interpretation
+Classical NLP
+(TF-IDF + Logistic Regression)
+            │
+            ▼
+Feature Engineering
+            │
+            ▼
+Machine Learning Pipeline
+            │
+            ▼
+Transfer Learning
+            │
+            ▼
+Transformer-based NLP
+(BERT)
 ```
----
 
-# 🛠️ Technologies Used
+This progression reflects how Natural Language Processing has evolved—from handcrafted textual features to contextual language understanding using transformer architectures.
 
-| Category | Technologies |
-|----------|--------------|
-| Programming Language | Python |
-| Data Manipulation | Pandas, NumPy |
-| NLP | NLTK, BeautifulSoup, contractions |
-| Feature Engineering | TF-IDF Vectorizer |
-| Machine Learning | Logistic Regression (Scikit-learn) |
-| Model Evaluation | Accuracy Score, Classification Report, Confusion Matrix |
-| Visualization | Matplotlib |
-| Development Environment | Jupyter Notebook, VS Code |
 
----
-
-# 📈 Results
-
-The Logistic Regression classifier achieved strong performance on the IMDb Movie Reviews dataset using TF-IDF features.
-
-### Performance Summary
-
-| Metric | Score |
-|--------|-------|
-| Accuracy | **89.9%** |
-| Model | Logistic Regression |
-| Feature Extraction | TF-IDF (Unigrams + Bigrams) |
-
-### Confusion Matrix
-
-<p align="center">
-<img src="images/Confusion_matrix.png" width="500">
-</p>
-
-### Classification Report
-
-<p align="center">
-<img src="images/Classification_report.png" width="600">
-</p>
-
-### Performance Comparison
-
-<p align="center">
-<img src="images/Performance_table.png" width="700">
-</p>
-
----
-
-# 📊 Evaluation Beyond Accuracy
-
-Rather than relying solely on accuracy, this project evaluates the classifier using multiple complementary metrics.
-
-- **Accuracy** measures overall correctness.
-- **Precision** evaluates how reliable positive and negative predictions are.
-- **Recall** measures the model's ability to identify all relevant reviews for each class.
-- **F1-score** provides a balanced measure of Precision and Recall.
-- **Confusion Matrix** highlights the distribution of correct predictions and misclassifications.
-
-Because the IMDb dataset is balanced, accuracy is an appropriate metric. However, combining these evaluation measures provides a more comprehensive assessment of model performance and reliability.
-
----
-
-# 🧠 Model Interpretation
-
-Most sentiment analysis projects stop after reporting the model's accuracy. This project goes one step further by analyzing **why** the model makes its predictions.
-
-Since Logistic Regression is an interpretable machine learning algorithm, every TF-IDF feature receives a learned coefficient.
-
-- Positive coefficients increase the probability of a **Positive** prediction.
-- Negative coefficients increase the probability of a **Negative** prediction.
-- Larger absolute coefficient values indicate stronger influence on the final prediction.
-
-By examining these coefficients, the project identifies the most influential positive and negative words learned during training, providing valuable insights into the classifier's decision-making process instead of treating it as a black box.
-
----
-
-# 🔍 Key Learning Outcomes
-
-Throughout this project, I explored not only how to build a sentiment classifier but also why each design decision matters.
-
-Key takeaways include:
-
-- Understanding the role of text preprocessing in NLP.
-- Preserving negation words to retain sentiment information.
-- Comparing TF-IDF with simpler Bag-of-Words representations.
-- Learning how Logistic Regression uses feature coefficients for prediction.
-- Interpreting model decisions instead of focusing only on evaluation metrics.
-- Building an end-to-end NLP pipeline suitable for real-world text classification tasks.
-
----
-
-# 📂 Repository Structure
+## 📂 Repository Structure
 
 ```text
 Movie-Review-Sentiment-Analysis/
@@ -217,12 +59,23 @@ Movie-Review-Sentiment-Analysis/
 │   └── IMDB Dataset.csv
 │
 ├── Notebook/
-│   └── movie_review.ipynb
+│   ├── 01_Classical_NLP/
+│   │   ├── movie_review.ipynb
+│   │   └── README.md
+│   │
+│   └── 02_BERT/
+│       ├── movie_review_BERT.ipynb
+│       └── README.md
 │
 ├── images/
-│   ├── confusion_matrix.png
-│   ├── classification_report.png
-│   └── performance_table.png
+│   ├── Classical_NLP/
+│   │    ├── Confusion_matrix.png
+│   │    ├── Classification_report.png
+│   │    └── Performance_table.png
+│   │
+│   └── BERT/
+│       ├── Confusion_matrix.png
+│       └── Classification_report.png
 │
 ├── README.md
 ├── requirements.txt
@@ -230,75 +83,95 @@ Movie-Review-Sentiment-Analysis/
 └── LICENSE
 ```
 
----
 
-# ⚙️ Installation
+## 📖 Explore the Implementations
 
-## Clone the repository
+| Implementation | Description |
+|---------------|-------------|
+| **01_Classical_NLP** | Traditional NLP pipeline using preprocessing, TF-IDF feature extraction, and Logistic Regression. Focuses on feature engineering and model interpretability. |
+| **02_BERT** | Transformer-based sentiment analysis using Hugging Face Transformers and transfer learning with Google's `bert-base-uncased` model. Focuses on contextual language understanding and modern NLP workflows. |
 
-```bash
-git clone https://github.com/ankith-b-kumar/IMBD-Movie-Reviews-Sentimental-Analysis-Classification-.git
-cd Movie-Review-Sentiment-Analysis
-```
 
-## Install dependencies
 
-```bash
-pip install -r requirements.txt
-```
+## 💼 Business Applications
 
----
+Although this repository uses the IMDb Movie Reviews dataset, the techniques demonstrated here extend far beyond movie reviews. Sentiment analysis is one of the most widely adopted Natural Language Processing (NLP) applications across industries where organizations need to understand large volumes of unstructured text.
 
-# ▶️ How to Run
+Some practical business applications include:
 
-1. Clone the repository.
-2. Install the required Python packages.
-3. Open the notebook located in the `Notebook` directory.
-4. Update the dataset path if necessary.
-5. Run all notebook cells sequentially to reproduce the complete workflow.
+| Industry | Potential Applications |
+|----------|------------------------|
+| 🛒 E-commerce | Analyze product reviews, identify recurring complaints, improve recommendations, and monitor customer satisfaction. |
+| ☎️ Customer Support | Prioritize negative feedback, categorize support tickets, and identify common service issues. |
+| 📱 Social Media | Monitor public opinion, measure campaign effectiveness, and track brand sentiment in real time. |
+| 🏦 Banking & Finance | Analyze customer feedback on banking services, identify pain points, and measure customer experience. |
+| 🏥 Healthcare | Evaluate patient feedback, improve service quality, and identify operational issues. |
+| 🎬 Entertainment | Understand audience reactions, evaluate content performance, and improve recommendation systems. |
 
-The notebook covers:
 
-- Data loading
-- Text preprocessing
-- Feature engineering using TF-IDF
-- Model training
-- Performance evaluation
-- Model interpretation
-- Prediction on custom reviews
 
----
+## 🎯 Why the IMDb Dataset?
 
-# 🚀 Future Improvements
+The IMDb Movie Reviews dataset is one of the most widely used benchmark datasets for binary sentiment classification. It contains balanced, real-world reviews written by users, making it an excellent resource for learning and evaluating NLP techniques.
 
-Potential enhancements for this project include:
+I selected this dataset because it allows me to focus on understanding the complete sentiment analysis workflow—from preprocessing and feature engineering to transformer-based transfer learning—without the additional complexity of domain-specific data.
 
-- Compare Classical NLP with Transformer-based models such as BERT and DistilBERT.
-- Perform hyperparameter tuning using GridSearchCV.
-- Experiment with additional feature extraction techniques.
-- Deploy the trained model as a web application using Streamlit or Flask.
-- Extend the classifier to support multi-class sentiment analysis.
+More importantly, once these techniques are validated on a benchmark dataset, they can be adapted to business domains such as customer reviews, employee feedback, survey responses, social media posts, and support tickets with minimal changes to the overall pipeline.
 
----
 
-# 🤝 Contributing
+## 🛠️ Tech Stack
 
-Contributions, suggestions, and improvements are welcome.
+| Category | Technologies |
+|----------|--------------|
+| Programming Language | Python |
+| Machine Learning | Scikit-learn |
+| Deep Learning | PyTorch |
+| Transformer Models | Hugging Face Transformers |
+| NLP | TF-IDF, WordPiece Tokenization, BERT |
+| Data Processing | Pandas, NumPy |
+| Visualization | Matplotlib |
+| Development Environment | Google Colab, VS Code |
 
-If you find a bug or have ideas to improve the project, feel free to open an issue or submit a pull request.
 
----
+## 🎯 What This Project Demonstrates
 
-# 👨‍💻 Author
+This repository goes beyond sentiment classification to showcase a practical learning journey in Natural Language Processing (NLP). It illustrates how NLP techniques have evolved from traditional feature engineering to transformer-based language models while emphasizing their applicability to real-world text analytics.
 
-**Ankith Kumar**
+Through this project, I explored:
+
+- The evolution, strengths, and trade-offs between classical machine learning and transformer-based NLP approaches.
+- End-to-end sentiment analysis workflows using both traditional and modern NLP techniques.
+- Model evaluation using multiple performance metrics beyond overall accuracy.
+- Transfer learning through fine-tuning a pre-trained BERT model.
+- Building reusable NLP pipelines that can be adapted to business scenarios involving customer feedback and other forms of unstructured text.
+
+Although the implementation uses the IMDb Movie Reviews dataset as a benchmark, the underlying methodologies are transferable to enterprise applications such as customer feedback analysis, product reviews, support ticket classification, and brand sentiment monitoring.
+
+
+## 🚀 Future Scope
+
+This repository serves as a foundation for exploring more advanced NLP applications. Potential future enhancements include:
+
+- Fine-tuning larger transformer models such as RoBERTa and DeBERTa.
+- Multi-class sentiment and emotion classification.
+- Aspect-Based Sentiment Analysis (ABSA).
+- Explainable AI techniques for transformer models.
+- Deployment as an interactive web application using Streamlit.
+- Integration with real-time customer feedback or social media data.
+
+
+## 👨‍💻 Author
+
+**B Ankith Kumar**
 
 Computer Science Engineering (Data Science) Student
 
-Interested in:
-- Natural Language Processing (NLP)
+**Areas of Interest**
+
+- Artificial Intelligence
 - Machine Learning
+- Natural Language Processing
 - Data Analytics
 - Generative AI
 
-If you found this project helpful, consider giving it a ⭐ on GitHub.
+If you found this repository useful, consider giving it a ⭐ on GitHub.
